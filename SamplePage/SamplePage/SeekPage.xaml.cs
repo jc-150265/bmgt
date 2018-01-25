@@ -468,7 +468,6 @@ namespace SamplePage
             var json = JObject.Parse(APIdata); //stringのAPIdataをJObjectにパース
             var Items = JArray.Parse(json["Items"].ToString()); //Itemsは配列なのでJArrayにパース
 
-            await DisplayAlert("dsf", "sdfsd", "sgfsd");
             //結果を出力
             foreach (JObject jobj in Items)
             {
