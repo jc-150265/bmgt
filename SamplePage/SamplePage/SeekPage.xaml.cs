@@ -476,8 +476,12 @@ namespace SamplePage
                 string title = (string)titleValue.Value;
                 await DisplayAlert("dsf", "Review前", "sgfsd");
                 JValue reviewAverageValue = (JValue)jobj["reviewAverage"];
-                double reviewAverage = (double)reviewAverageValue.Value;
-                await DisplayAlert("dsf", "sdfsd", "sgfsd");
+                await DisplayAlert("dsf", "string", "sgfsd");
+                string reviewAverage = (string)reviewAverageValue.Value;
+                await DisplayAlert("dsf", "parse", "sgfsd");
+                double Review = double.Parse(reviewAverage);
+                await DisplayAlert("dsf", "the endってね", "sgfsd");
+                
                 JValue titleKanaValue = (JValue)jobj["titleKana"];
                 string titleKana = (string)titleKanaValue.Value;
 
@@ -488,7 +492,7 @@ namespace SamplePage
                 string gazo = (string)gazoValue.Value;
 
                 ListTitle.Add(title);
-                ListReview.Add(reviewAverage);
+                ListReview.Add(Review);
 
             };
             await DisplayAlert("dsf", "sdfsd", "sgfsd");
