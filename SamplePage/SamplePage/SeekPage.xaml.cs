@@ -439,7 +439,7 @@ namespace SamplePage
             
             var query = UserModel.selectUser();
             var ListTitle = new List<String>();
-            var ListReview = new List<double>();
+            List<double> ListReview = new List<double>();
 
             requestUrl = url + "&booksGenreId=001" + genreid; //URLにISBNコードを挿入
 
@@ -474,7 +474,7 @@ namespace SamplePage
                 //↓のように取り出す
                 JValue titleValue = (JValue)jobj["title"];
                 string title = (string)titleValue.Value;
-
+                await DisplayAlert("dsf", "Review前", "sgfsd");
                 JValue reviewAverageValue = (JValue)jobj["reviewAverage"];
                 double reviewAverage = (double)reviewAverageValue.Value;
                 await DisplayAlert("dsf", "sdfsd", "sgfsd");
