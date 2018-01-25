@@ -292,11 +292,32 @@ namespace SamplePage
             {
                 if (picker3.SelectedIndex < 9)
                 {
-                    genreid = genreid + "00" + (picker3.SelectedIndex + 1).ToString();
+                    if (picker2.SelectedIndex < 9)
+                    {
+                        //genreid = genreid + "00" + (picker3.SelectedIndex + 1).ToString();
+                        genreid = "";
+                        genreid = "00"+(picker2.SelectedIndex + 1).ToString() + "00"(picker3.SelectedIndex + 1).ToString();
+                    }
+                    else
+                    {
+                        genreid = "";
+                        genreid = "0" + (picker2.SelectedIndex + 1).ToString() + "00"(picker3.SelectedIndex + 1).ToString();
+                    }
+                    
                 }
                 else
                 {
-                    genreid = genreid + "0" + (picker3.SelectedIndex + 1).ToString();
+                    if (picker2.SelectedIndex < 9)
+                    {
+                        //genreid = genreid + "00" + (picker3.SelectedIndex + 1).ToString();
+                        genreid = "";
+                        genreid = "00" + (picker2.SelectedIndex + 1).ToString() + "0"(picker3.SelectedIndex + 1).ToString();
+                    }
+                    else
+                    {
+                        genreid = "";
+                        genreid = "0" + (picker2.SelectedIndex + 1).ToString() + "0"(picker3.SelectedIndex + 1).ToString();
+                    }
                 }
 
             }
@@ -437,8 +458,7 @@ namespace SamplePage
             //2秒処理を待つ
             await Task.Delay(2000);
             items.Clear();
-            
-            var query = UserModel.selectUser();
+           
             var ListTitle = new List<String>();
             List<double> ListReview = new List<double>();
 
@@ -493,11 +513,12 @@ namespace SamplePage
 
             };
             
-            for (var j = 0; j < 30; j++)
+            for (var j = 0; j < items.Count; j++)
             {
                 items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j] });
 
             }
+
 
             for (var i = 0; i < items.Count; i++)
             {
