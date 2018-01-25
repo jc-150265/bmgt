@@ -466,6 +466,7 @@ namespace SamplePage
             var json = JObject.Parse(APIdata); //stringのAPIdataをJObjectにパース
             var Items = JArray.Parse(json["Items"].ToString()); //Itemsは配列なのでJArrayにパース
 
+            await DisplayAlert("dsf", "sdfsd", "sgfsd");
             //結果を出力
             foreach (JObject jobj in Items)
             {
@@ -475,7 +476,7 @@ namespace SamplePage
 
                 JValue reviewAverageValue = (JValue)jobj["reviewAverage"];
                 double reviewAverage = (double)reviewAverageValue.Value;
-
+                await DisplayAlert("dsf", "sdfsd", "sgfsd");
                 JValue titleKanaValue = (JValue)jobj["titleKana"];
                 string titleKana = (string)titleKanaValue.Value;
 
