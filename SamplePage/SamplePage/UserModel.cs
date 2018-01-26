@@ -168,7 +168,7 @@ namespace SamplePage
 
         //Userテーブルのuserを削除するメソッド
         //--------------------------delete文的なの--------------------------
-        public static void deleteUser()
+        public static void dropUser()
         {
 
             //データベースに接続

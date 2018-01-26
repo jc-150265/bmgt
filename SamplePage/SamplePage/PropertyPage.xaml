@@ -9,7 +9,7 @@
                 <TableView.Root>
                     <TableRoot>
                         <TableSection>
-                            <TextCell Text="一般" Tapped="Common" />
+                            <TextCell Text="本棚全消去" Tapped="Common" />
                             <TextCell Text="バックアップ復元" Tapped="Backup" />
                             <TextCell Text="ヘルプ" Tapped="Help" />
                         </TableSection>
