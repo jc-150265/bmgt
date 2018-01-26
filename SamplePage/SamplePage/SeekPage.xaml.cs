@@ -216,7 +216,7 @@ namespace SamplePage
                     picker3.Items.Add("少女");
                     picker3.Items.Add("青年");
                     picker3.Items.Add("レディース");
-                    genreid = "00"+(picker2.SelectedIndex+1).ToString;
+                    genreid = "00"+(picker2.SelectedIndex+1).ToString();
                 }
 
                 if (this.picker2.SelectedIndex == 1)
@@ -227,7 +227,7 @@ namespace SamplePage
                     picker3.Items.Add("辞典");
                     picker3.Items.Add("語学関係資格");
                     picker3.Items.Add("学習参考書・問題書");
-                    genreid = "00" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "00" + (picker2.SelectedIndex + 1).ToString();
                 }
 
                 if (this.picker2.SelectedIndex == 2)
@@ -239,7 +239,7 @@ namespace SamplePage
                     picker3.Items.Add("民話・昔話");
                     picker3.Items.Add("しかけ絵本");
                     picker3.Items.Add("図鑑・知識");
-                    genreid = "00" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "00" + (picker2.SelectedIndex + 1).ToString();
                 }
 
 
@@ -252,7 +252,7 @@ namespace SamplePage
                     picker3.Items.Add("ノンフィクション");
                     picker3.Items.Add("日本の小説");
                     picker3.Items.Add("外国の小説");
-                    genreid = "00" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "00" + (picker2.SelectedIndex + 1).ToString();
                 }
 
                 if (this.picker2.SelectedIndex == 4)
@@ -270,7 +270,7 @@ namespace SamplePage
                     picker3.Items.Add("MOUS・MOT");
                     picker3.Items.Add("パソコン検定");
                     picker3.Items.Add("IT・eコマース");
-                    genreid = "00" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "00" + (picker2.SelectedIndex + 1).ToString();
                 }
                 if (this.picker2.SelectedIndex == 5)
                 {
@@ -296,7 +296,7 @@ namespace SamplePage
                     picker3.Items.Add("アフィリエイト");
                     picker3.Items.Add("ビジネスマナー");
                     picker3.Items.Add("金融");
-                    genreid = "00" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "00" + (picker2.SelectedIndex + 1).ToString();
                 }
 
                 if (this.picker2.SelectedIndex == 6)
@@ -314,7 +314,7 @@ namespace SamplePage
                     picker3.Items.Add("釣り");
                     picker3.Items.Add("その他");
                     picker3.Items.Add("キャンプ");
-                    genreid = "00" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "00" + (picker2.SelectedIndex + 1).ToString();
                 }
                 if (this.picker2.SelectedIndex == 7)
                 {
@@ -335,7 +335,7 @@ namespace SamplePage
                     picker3.Items.Add("言語学");
                     picker3.Items.Add("文学");
                     picker3.Items.Add("その他");
-                    genreid = "00" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "00" + (picker2.SelectedIndex + 1).ToString();
                 }
 
                 if (this.picker2.SelectedIndex == 8)
@@ -356,7 +356,7 @@ namespace SamplePage
                     picker3.Items.Add("トレーディングカード");
                     picker3.Items.Add("その他");
                     picker3.Items.Add("自転車");
-                    genreid = "00" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "00" + (picker2.SelectedIndex + 1).ToString();
                 }
 
                 if (this.picker2.SelectedIndex == 9)
@@ -378,7 +378,7 @@ namespace SamplePage
                     picker3.Items.Add("ファッション・美容");
                     picker3.Items.Add("その他");
                     picker3.Items.Add("雑貨");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
 
                 if (this.picker2.SelectedIndex == 10)
@@ -395,7 +395,7 @@ namespace SamplePage
                     picker3.Items.Add("サブカルチャー");
                     picker3.Items.Add("その他");
                     picker3.Items.Add("タレント関連本");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
 
                 if (this.picker2.SelectedIndex == 11)
@@ -413,7 +413,7 @@ namespace SamplePage
                     picker3.Items.Add("工学");
                     picker3.Items.Add("建築学");
                     picker3.Items.Add("その他");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
                 if (this.picker2.SelectedIndex == 12)
                 {
@@ -421,7 +421,7 @@ namespace SamplePage
                     picker3.Items.Add("グラビアアイドル・タレント写真集");
                     picker3.Items.Add("その他");
                     picker3.Items.Add("動物・自然");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
                 if (this.picker2.SelectedIndex == 13)
                 {
@@ -444,7 +444,7 @@ namespace SamplePage
                     picker3.Items.Add("公務員試験");
                     picker3.Items.Add("自動車免許");
                     picker3.Items.Add("その他");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
 
 
                 }
@@ -454,7 +454,7 @@ namespace SamplePage
                     picker3.Items.Add("その他");
                     picker3.Items.Add("少年");
                     picker3.Items.Add("少女");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
                 if (this.picker2.SelectedIndex == 15)
                 {
@@ -471,7 +471,7 @@ namespace SamplePage
                     picker3.Items.Add("合唱");
                     picker3.Items.Add("声楽");
                     picker3.Items.Add("その他");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
                 if (this.picker2.SelectedIndex == 16)
                 {
@@ -490,7 +490,7 @@ namespace SamplePage
                     picker3.Items.Add("エンタメ");
                     picker3.Items.Add("写真集・タレント");
                     picker3.Items.Add("その他");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
                 if (this.picker2.SelectedIndex == 17)
                 {
@@ -507,7 +507,7 @@ namespace SamplePage
                     picker3.Items.Add("科学・医学・技術");
                     picker3.Items.Add("エンタメ");
                     picker3.Items.Add("その他");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
 
                 if (this.picker2.SelectedIndex == 18)
@@ -516,7 +516,7 @@ namespace SamplePage
                     picker3.Items.Add("小説");
                     picker3.Items.Add("コミック");
                     picker3.Items.Add("その他");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
 
                 if (this.picker2.SelectedIndex == 19)
@@ -525,7 +525,7 @@ namespace SamplePage
                     picker3.Items.Add("カレンダー");
                     picker3.Items.Add("手帳");
                     picker3.Items.Add("家計簿");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
                 if (this.picker2.SelectedIndex == 20)
                 {
@@ -544,7 +544,7 @@ namespace SamplePage
                     picker3.Items.Add("シーズナル");
                     picker3.Items.Add("高級ステーショナリー");
                     picker3.Items.Add("その他");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
                 if (this.picker2.SelectedIndex == 21)
                 {
@@ -567,7 +567,7 @@ namespace SamplePage
                     picker3.Items.Add("歯科医学");
                     picker3.Items.Add("試験対策(資格試験別)");
                     picker3.Items.Add("辞事典・白書・語学");
-                    genreid = "0" + (picker2.SelectedIndex + 1).ToString;
+                    genreid = "0" + (picker2.SelectedIndex + 1).ToString();
                 }
                 genre2 = genreid;
 

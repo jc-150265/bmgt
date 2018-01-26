@@ -19,7 +19,7 @@ namespace SamplePage
 
         private void Common(object sender, EventArgs e)
         {
-            bool x = await DisplayAlert("警告", "登録されている書籍を消去してもよろしいですか？", "OK", "CANCEL");
+            bool x = DisplayAlert("警告", "登録されている書籍を消去してもよろしいですか？", "OK", "CANCEL");
             if (x == true)
             {
                 UserModel.dropUser();
