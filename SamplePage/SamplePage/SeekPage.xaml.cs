@@ -733,9 +733,8 @@ namespace SamplePage
             //2秒処理を待つ
             await Task.Delay(2000);
             items.Clear();
-           
             var ListTitle = new List<String>();
-            List<double> ListReview = new List<double>();
+            var ListReview = new List<double>();
 
             requestUrl = url + "&booksGenreId=001" + genreid; //URLにISBNコードを挿入
 
@@ -747,7 +746,7 @@ namespace SamplePage
             {
                 await DisplayAlert("接続エラー", "接続に失敗しました", "OK");
             }
-            
+
             /*
             //レスポンス(JSON)をstringに変換-------------->しなくていい
             Stream s = GetMemoryStream(APIdata); //GetMemoryStreamメソッド呼び出し
@@ -769,11 +768,11 @@ namespace SamplePage
                 //↓のように取り出す
                 JValue titleValue = (JValue)jobj["title"];
                 string title = (string)titleValue.Value;
-                
-                JValue reviewAverageValue = (JValue)jobj["reviewAverage"];                
-                string reviewAverage = (string)reviewAverageValue.Value;                
-                double Review = double.Parse(reviewAverage);                
-                
+
+                JValue reviewAverageValue = (JValue)jobj["reviewAverage"];
+                string reviewAverage = (string)reviewAverageValue.Value;
+                double Review = double.Parse(reviewAverage);
+
                 JValue titleKanaValue = (JValue)jobj["titleKana"];
                 string titleKana = (string)titleKanaValue.Value;
 
@@ -787,14 +786,12 @@ namespace SamplePage
                 ListReview.Add(Review);
 
             };
-            
-            for (var j = 0; j < items.Count; j++)
+
+            for (var j = 0; j < 30; j++)
             {
                 items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j] });
 
             }
-
-
             for (var i = 0; i < items.Count; i++)
             {
                 if (items[i].Value <= 0.25)
@@ -843,6 +840,7 @@ namespace SamplePage
                 }
 
             }
+
 
             RankListView.ItemsSource = items;
 
