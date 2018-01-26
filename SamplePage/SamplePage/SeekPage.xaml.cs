@@ -587,12 +587,12 @@ namespace SamplePage
                 if (picker3.SelectedIndex < 9)
                 {
                     genreid = "";
-                    genreid = genre2 + "00"(picker3.SelectedIndex + 1).ToString();
+                    genreid = genre2 + "00"+(picker3.SelectedIndex + 1).ToString();
                 }
                 else
                 {
                     genreid = "";
-                    genreid = genre2 + "0"(picker3.SelectedIndex + 1).ToString();
+                    genreid = genre2 + "0"+(picker3.SelectedIndex + 1).ToString();
                 }
 
             }
