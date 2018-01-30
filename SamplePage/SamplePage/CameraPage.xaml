@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SamplePage.CameraPage">
     <ContentPage.Content>
-        <Entry Placeholder="ISBNを入力してください。"
+        <StackLayout>
+            <Entry Placeholder="ISBNを入力してください。"
                    PlaceholderColor="Gray"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Center"
@@ -15,11 +16,11 @@
                     x:Name="serch"
                     Clicked="SerchClicked"/>
 
-        <StackLayout>
+       
             <Button Image="SampleISBN.png"
-            Clicked="ScanButtonClicked"
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand" />
+                   Clicked="ScanButtonClicked"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand" />
 
 
             
