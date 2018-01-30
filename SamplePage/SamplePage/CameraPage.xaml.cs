@@ -238,7 +238,7 @@ namespace SamplePage
                 }
         }
 
-        async SerchClicked(object sender, EventArgs ex)
+        async SerchClicked(object sender, EventArgs e)
         {
             try
             {
@@ -296,9 +296,9 @@ namespace SamplePage
 
                 };
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                await DisplayAlert("Error", ex.ToString(), "ok");
+                await DisplayAlert("Error", e.ToString(), "ok");
             }
 
 
