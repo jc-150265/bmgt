@@ -238,7 +238,7 @@ namespace SamplePage
                 }
         }
 
-        void SerchClicked(object sender, EventArgs e)
+        async SerchClicked(object sender, EventArgs ex)
         {
             try
             {
@@ -290,15 +290,15 @@ namespace SamplePage
                     bool x = await DisplayAlert("この内容で登録してよろしいですか？", "タイトル:" + title + "\r\n著者:" + author, "OK", "CANCEL");
                     if (x == true)
                     {
-                        UserModel.insertUser(isbncode, title, titleKana, itemCaption);
+                        UserModel.insertUser(serch.Text, title, titleKana, itemCaption);
                     }
 
 
                 };
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                await DisplayAlert("Error", e.ToString(), "ok");
+                await DisplayAlert("Error", ex.ToString(), "ok");
             }
 
 
