@@ -242,7 +242,7 @@ namespace SamplePage
         {
             try
             {
-                requestUrl = url + "&isbn=" + serch.Text; //URLにISBNコードを挿入
+                requestUrl = url + "&isbn=" + LOL.Text; //URLにISBNコードを挿入
 
                 //HTTPアクセスメソッドを呼び出す
                 string APIdata = await GetApiAsync(); //jsonをstringで受け取る
@@ -290,7 +290,7 @@ namespace SamplePage
                     bool x = await DisplayAlert("この内容で登録してよろしいですか？", "タイトル:" + title + "\r\n著者:" + author, "OK", "CANCEL");
                     if (x == true)
                     {
-                        UserModel.insertUser(serch.Text, title, titleKana, itemCaption);
+                        UserModel.insertUser(LOL.Text, title, titleKana, itemCaption);
                     }
 
 
