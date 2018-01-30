@@ -296,9 +296,9 @@ namespace SamplePage
 
                 };
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                await DisplayAlert("Error", e.ToString(), "ok");
+                await DisplayAlert("Error", ex.ToString(), "ok");
             }
 
 
