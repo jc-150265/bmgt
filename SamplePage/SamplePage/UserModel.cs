@@ -130,32 +130,86 @@ namespace SamplePage
     [Table("Book")]
     public class UserModel
     {
-        //プライマリキー　自動採番されます
+        //プライマリキー
         [PrimaryKey]
-        //カラムっていうのは列と同じ
-        //idカラム
+        //ISBN列 主キー
         public string ISBN { get; set; }
-        //名前カラム
+
+        //タイトル列
         public string Title { get; set; }
 
+        //タイトルカナ列
         public string TitleKana { get; set; }
 
+        //サブタイトル列
+        public string SubTitle { get; set; }
+
+        //サブタイトルカナ列
+        public string SubTitleKana { get; set; }
+
+        //著者列
+        public string Author { get; set; }
+
+        //著者カナ列
+        public string AuthorKana { get; set; }
+
+        //出版社列
+        public string Publisher { get; set; }
+
+        //種類列(コミック、文庫、etc..)
+        public string Type { get; set; }
+
+        //アイテム説明列
         public string ItemCaption { get; set; }
-        //Userテーブルに行追加するメソッドです
+
+        //発売日列
+        public string SalesDate { get; set; }
+
+        //登録日列
+        public DateTime Date { get; set; }
+
+        //金額列
+        public int Price { get; set; }
+
+        //ImageUrl
+        public string largeImageUrl { get; set; }
+
+        //GenreId列
+        public string booksGenreId { get; set; }
         //------------------------Insert文的なの--------------------------
-       
+
         //id name オーバーロード
-        public static void insertUser(string isbn,string title, string titlekana,string itemcaption)
+        public static void insertUser(string isbn, string title, string titleKana, string subTitle, string subTitleKana,
+            string author, string authorKana, string publisher, string type, string itemCaption,
+            string salesDate, int price, string image, string genreId)
         {
             //データベースに接続する
             using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
             {
                 try
                 {
-                    //データベースにUserテーブルを作成する
+                    //データベースにBookテーブルを作成する
                     db.CreateTable<UserModel>();
 
-                    db.Insert(new UserModel() { ISBN = isbn, Title=title,TitleKana=titlekana,ItemCaption=itemcaption });
+                    db.Insert(new UserModel()
+                    {
+                        ISBN = isbn,
+                        Title = title,
+                        TitleKana = titleKana,
+                        SubTitle = subTitle,
+                        SubTitleKana = subTitleKana,
+                        Author = author,
+                        AuthorKana = authorKana,
+                        Publisher = publisher,
+                        Type = type,
+                        ItemCaption = itemCaption,
+                        SalesDate = salesDate,
+                        Date = DateTime.Now,
+                        Price = price,
+                        largeImageUrl = image,
+                        booksGenreId = genreId
+                    });
+
                     db.Commit();
                 }
                 catch (Exception e)

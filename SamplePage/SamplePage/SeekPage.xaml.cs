@@ -796,47 +796,47 @@ namespace SamplePage
             {
                 if (items[i].Value <= 0.25)
                 {
-                    items.Add(new Book2 { ValueImage ="value_0.gif" });
+                    items[i].ValueImage = "value_0.gif";
                 }
                 else if (items[i].Value <= 0.75)
                 {
-                    items.Add(new Book2 { ValueImage = "value_0.5.gif" });
+                    items[i].ValueImage = "value_0.5.gif";
                 }
                 else if (items[i].Value <= 1.25)
                 {
-                    items.Add(new Book2 { ValueImage = "value_1.gif" });
+                    items[i].ValueImage = "value_1.gif";
                 }
                 else if (items[i].Value <= 1.75)
                 {
-                    items.Add(new Book2 { ValueImage = "value_1.5.gif" });
+                    items[i].ValueImage = "value_1.5.gif";
                 }
                 else if (items[i].Value <= 2.25)
                 {
-                    items.Add(new Book2 { ValueImage = "value_2.gif" });
+                    items[i].ValueImage = "value_2.gif";
                 }
                 else if (items[i].Value <= 2.75)
                 {
-                    items.Add(new Book2 { ValueImage = "value_2.5.gif" });
+                    items[i].ValueImage = "value_2.5.gif";
                 }
                 else if (items[i].Value <= 3.25)
                 {
-                    items.Add(new Book2 { ValueImage = "value_3.gif" });
+                    items[i].ValueImage = "value_3.gif";
                 }
                 else if (items[i].Value <= 3.75)
                 {
-                    items.Add(new Book2 { ValueImage = "value_3.5.gif" });
+                    items[i].ValueImage = "value_3.5.gif";
                 }
                 else if (items[i].Value <= 4.25)
                 {
-                    items.Add(new Book2 { ValueImage = "value_4.gif" });
+                    items[i].ValueImage = "value_4.gif";
                 }
                 else if (items[i].Value <= 4.75)
                 {
-                    items.Add(new Book2 { ValueImage = "value_4.5.gif" });
+                    items[i].ValueImage = "value_4.5.gif";
                 }
                 else
                 {
-                    items.Add(new Book2 { ValueImage = "value_5.gif" });
+                    items[i].ValueImage = "value_5.gif";
                 }
 
             }
