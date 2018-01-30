@@ -18,10 +18,40 @@ namespace SamplePage
         bool hantei2 = true;
         bool hantei3 = true;
 
-        public DetailPage(String x)
+        var titlee;
+        var Date;
+        var type;
+        var publisher;
+        var bluebook;
+        var redstar;
+
+        public DetailPage(string x)
         {
             InitializeComponent();
-            Name.Text = x;
+
+            if (UserModel.isbnSelect(x) != null)
+            {
+                var query = UserModel.isbnSelect(x);
+
+                foreach (var book in query)
+                {
+                    titlee = book.Title;
+                    Date = book.SalesDate;
+                    type = book.Type;
+                    publisher = book.Publisher;
+                    bluebook = book.BlueBook;
+                    redstar = book.RedStar;
+                }
+                title2.Text = titlee;
+                Type2.Text = "タイプ：" + type;
+                SalesDate2.Text = "発売日:" + Date;
+                Publisher2.Text = "出版社:" + publisher;
+
+            }
+            else
+            {
+                DisplayAlert("表なし", "表なし", "OK");
+            }
         }
 
         // 読みたいボタンを点滅させる

@@ -11,7 +11,7 @@
             <StackLayout>
 
                 <!-- 本のタイトルを表示 -->
-                <Label Text="基礎から学ぶXamarinプログラミング" Margin="30" FontSize="30" x:Name="Name"/>
+                <Label Text="基礎から学ぶXamarinプログラミング" Margin="30" FontSize="30" x:Name="title2"/>
 
                 <!-- 横線を表示 -->
                 <BoxView Color="Gray" WidthRequest="1000" HeightRequest="1" />
@@ -21,9 +21,9 @@
 
                 <!-- 本のデータ -->
                 <Label Text="基礎データ" Margin="15" FontSize="20"/>
-                <Label Text="タイプ" />
-                <Label Text="発売日" />
-                <Label Text="出版社" />
+                <Label Text="タイプ" x:Name="Type2"/>
+                <Label Text="発売日" x:Name="SalesDate2"/>
+                <Label Text="出版社" x:Name="Publisher2"/>
                 <Label Text="カテゴリ" />
 
             </StackLayout>

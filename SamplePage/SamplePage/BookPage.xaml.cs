@@ -24,14 +24,16 @@ namespace SamplePage
             {
                 var query = UserModel.selectUser();
                 var List1 = new List<String>();
+                var List2 = new List<String>();
                 //*をリストにぶち込んで個数分addするのでもいいのでは
                 foreach (var user in query)
                 {
                     List1.Add(user.Title);
+                    List2.Add(user.ISBN);
                 }
                 for (var j = 0; j < query.Count; j++)
                 {
-                    items.Add(new Book { Name = List1[j], /*Value = 2.5*/ });
+                    items.Add(new Book {ISBN=List2[j], Name = List1[j], /*Value = 2.5*/ });
 
                 }
             }
@@ -120,6 +122,8 @@ namespace SamplePage
 
         public class Book
         {
+            public string ISBN { get; set; }
+
             public string Name { get; set; }
 
             public double Value { get; set; }
@@ -139,7 +143,7 @@ namespace SamplePage
         {
 
             Book book = (Book)BookListView.SelectedItem;
-            string x = book.Name;
+            string x = book.ISBN;
             Navigation.PushAsync(new DetailPage(x));
             /*string x = new BookPage().BookListView.ItemsSource.ToString();
             var layout = new StackLayout { HorizontalOptions = LayoutOptions.Center, Margin = new Thickness { Top = 100 } };

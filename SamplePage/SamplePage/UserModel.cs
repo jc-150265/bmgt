@@ -269,13 +269,13 @@ namespace SamplePage
             }
         }
         
-       public static List<UserModel> countUser(int id)
+       public static List<UserModel> isbnSelect(string isbn)
         {
             using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
             {
                 try
                 {
-                    return db.Query<UserModel>("SELECT Name FROM[Book] where [_id] =" + id + " limit 15");
+                    return db.Query<UserModel>("SELECT * FROM[Book] where [ISBN] =" + isbn);
                 }catch(Exception e)
                 {
                     System.Diagnostics.Debug.WriteLine(e);
