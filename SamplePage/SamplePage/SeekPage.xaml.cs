@@ -249,7 +249,9 @@ namespace SamplePage
                     picker3.Items.Add("ミステリー・サスペンス");
                     picker3.Items.Add("SF・ホラー");
                     picker3.Items.Add("エッセイ");
-                    picker3.Items.Add("ノンフィクション");                   
+                    picker3.Items.Add("ノンフィクション");
+                    picker3.Items.Add("日本の小説");
+                    picker3.Items.Add("外国の小説");
                     genreid = "00" + (picker2.SelectedIndex + 1).ToString();
                 }
 
@@ -785,55 +787,61 @@ namespace SamplePage
 
             };
 
-            for (var j = 0; j < items.Count; j++)
+            for (var j = 0; j < 30; j++)
             {
                 items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j] });
 
-                if (items[j].Value <= 0.25)
+            }
+            for (var i = 0; i < items.Count; i++)
+            {
+                if (items[i].Value <= 0.25)
                 {
-                    items[j].ValueImage = "value_0.gif";
+                    items.Add(new Book2 { ValueImage ="value_0.gif" });
                 }
-                else if (items[j].Value <= 0.75)
+                else if (items[i].Value <= 0.75)
                 {
-                    items[j].ValueImage = "value_0.5.gif";
+                    items.Add(new Book2 { ValueImage = "value_0.5.gif" });
                 }
-                else if (items[j].Value <= 1.25)
+                else if (items[i].Value <= 1.25)
                 {
-                    items[j].ValueImage = "value_1.gif";
+                    items.Add(new Book2 { ValueImage = "value_1.gif" });
                 }
-                else if (items[j].Value <= 1.75)
+                else if (items[i].Value <= 1.75)
                 {
-                    items[j].ValueImage = "value_1.5.gif";
+                    items.Add(new Book2 { ValueImage = "value_1.5.gif" });
                 }
-                else if (items[j].Value <= 2.25)
+                else if (items[i].Value <= 2.25)
                 {
-                    items[j].ValueImage = "value_2.gif";
+                    items.Add(new Book2 { ValueImage = "value_2.gif" });
                 }
-                else if (items[j].Value <= 2.75)
+                else if (items[i].Value <= 2.75)
                 {
-                    items[j].ValueImage = "value_2.5.gif";
+                    items.Add(new Book2 { ValueImage = "value_2.5.gif" });
                 }
-                else if (items[j].Value <= 3.25)
+                else if (items[i].Value <= 3.25)
                 {
-                    items[j].ValueImage = "value_3.gif";
+                    items.Add(new Book2 { ValueImage = "value_3.gif" });
                 }
-                else if (items[j].Value <= 3.75)
+                else if (items[i].Value <= 3.75)
                 {
-                    items[j].ValueImage = "value_3.5.gif";
+                    items.Add(new Book2 { ValueImage = "value_3.5.gif" });
                 }
-                else if (items[j].Value <= 4.25)
+                else if (items[i].Value <= 4.25)
                 {
-                    items[j].ValueImage = "value_4.gif";
+                    items.Add(new Book2 { ValueImage = "value_4.gif" });
                 }
-                else if (items[j].Value <= 4.75)
+                else if (items[i].Value <= 4.75)
                 {
-                    items[j].ValueImage = "value_4.5.gif";
+                    items.Add(new Book2 { ValueImage = "value_4.5.gif" });
                 }
                 else
                 {
-                    items[j].ValueImage = "value_5.gif";
+                    items.Add(new Book2 { ValueImage = "value_5.gif" });
                 }
+
             }
+
+
             RankListView.ItemsSource = items;
 
 

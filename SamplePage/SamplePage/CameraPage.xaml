@@ -8,6 +8,7 @@
                    PlaceholderColor="Gray"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Center"
+                   Margin="30"
                    x:Name="LOL"/>
 
         <Button Text="Serch!"
