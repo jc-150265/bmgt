@@ -238,7 +238,7 @@ namespace SamplePage
                 }
         }
 
-        async SerchClicked(object sender, EventArgs e)
+        async void SerchClicked(object sender, EventArgs e)
         {
             try
             {
