@@ -789,49 +789,49 @@ namespace SamplePage
             {
                 items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j] });
 
-                if (items[i].Value <= 0.25)
+                if (items[j].Value <= 0.25)
                 {
-                    items[i].ValueImage = "value_0.gif";
+                    items[j].ValueImage = "value_0.gif";
                 }
-                else if (items[i].Value <= 0.75)
+                else if (items[j].Value <= 0.75)
                 {
-                    items[i].ValueImage = "value_0.5.gif";
+                    items[j].ValueImage = "value_0.5.gif";
                 }
-                else if (items[i].Value <= 1.25)
+                else if (items[j].Value <= 1.25)
                 {
-                    items[i].ValueImage = "value_1.gif";
+                    items[j].ValueImage = "value_1.gif";
                 }
-                else if (items[i].Value <= 1.75)
+                else if (items[j].Value <= 1.75)
                 {
-                    items[i].ValueImage = "value_1.5.gif";
+                    items[j].ValueImage = "value_1.5.gif";
                 }
-                else if (items[i].Value <= 2.25)
+                else if (items[j].Value <= 2.25)
                 {
-                    items[i].ValueImage = "value_2.gif";
+                    items[j].ValueImage = "value_2.gif";
                 }
-                else if (items[i].Value <= 2.75)
+                else if (items[j].Value <= 2.75)
                 {
-                    items[i].ValueImage = "value_2.5.gif";
+                    items[j].ValueImage = "value_2.5.gif";
                 }
-                else if (items[i].Value <= 3.25)
+                else if (items[j].Value <= 3.25)
                 {
-                    items[i].ValueImage = "value_3.gif";
+                    items[j].ValueImage = "value_3.gif";
                 }
-                else if (items[i].Value <= 3.75)
+                else if (items[j].Value <= 3.75)
                 {
-                    items[i].ValueImage = "value_3.5.gif";
+                    items[j].ValueImage = "value_3.5.gif";
                 }
-                else if (items[i].Value <= 4.25)
+                else if (items[j].Value <= 4.25)
                 {
-                    items[i].ValueImage = "value_4.gif";
+                    items[j].ValueImage = "value_4.gif";
                 }
-                else if (items[i].Value <= 4.75)
+                else if (items[j].Value <= 4.75)
                 {
-                    items[i].ValueImage = "value_4.5.gif";
+                    items[j].ValueImage = "value_4.5.gif";
                 }
                 else
                 {
-                    items[i].ValueImage = "value_5.gif";
+                    items[j].ValueImage = "value_5.gif";
                 }
             }
             RankListView.ItemsSource = items;
