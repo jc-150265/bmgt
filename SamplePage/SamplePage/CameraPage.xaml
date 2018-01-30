@@ -13,12 +13,12 @@
             <Entry Placeholder="ISBNを入力してください。"
                    PlaceholderColor="Gray"
                    HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
                    x:Name="LOL"/>
 
             <Button Text="Serch!"
                     HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="CenterAndExpand"
+                    VerticalOptions="Center"
                     x:Name="serch"
                     Clicked="SerchClicked"/>
         </StackLayout>
