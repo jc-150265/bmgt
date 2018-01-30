@@ -203,13 +203,13 @@ namespace SamplePage
                             UserModel.insertUser(isbncode, title, titleKana, itemCaption);
                         }
 
-                        
+
                     };
 
-                   
+
 
                 };
-                
+
             }
             catch (Exception e)
             {
@@ -238,24 +238,71 @@ namespace SamplePage
                 }
         }
 
-        void SelectClicked(object sender, EventArgs e)
+        void SerchClicked(object sender, EventArgs e)
         {
-            //Userテーブルの行データを取得
-            var query = UserModel.selectUser(); //中身はSELECT * FROM [User]
-            var layout = new StackLayout { HorizontalOptions = LayoutOptions.Center, Margin = new Thickness { Top = 100 } };
-            foreach (var user in query)
+            try
             {
+                requestUrl = url + "&isbn=" + serch.Text; //URLにISBNコードを挿入
 
-                //Userテーブルの名前列をLabelに書き出す
-                layout.Children.Add(new Label { Text = user.ISBN});
-                layout.Children.Add(new Label { Text = user.Title });
-                layout.Children.Add(new Label { Text = user.TitleKana });
-                layout.Children.Add(new Label { Text = user.ItemCaption });
-                //layout.Children.Add(new Label { Text = user.No.ToString() });
-                // LOL.Text = user.Name;
+                //HTTPアクセスメソッドを呼び出す
+                string APIdata = await GetApiAsync(); //jsonをstringで受け取る
 
+                //HTTPアクセス失敗処理(404エラーとか名前解決失敗とかタイムアウトとか)
+                if (APIdata is null)
+                {
+                    await DisplayAlert("接続エラー", "接続に失敗しました", "OK");
+                }
+
+                /*
+                //レスポンス(JSON)をstringに変換-------------->しなくていい
+                Stream s = GetMemoryStream(APIdata); //GetMemoryStreamメソッド呼び出し
+                StreamReader sr = new StreamReader(s);
+                string json = sr.ReadToEnd();
+                */
+                /*
+                //デシリアライズ------------------>しなくていい
+                var rakutenBooks = JsonConvert.DeserializeObject<RakutenBooks>(json.ToString());
+                */
+
+                //パースする *重要*   パースとは、文法に従って分析する、品詞を記述する、構文解析する、などの意味を持つ英単語。
+                var json = JObject.Parse(APIdata); //stringのAPIdataをJObjectにパース
+                var Items = JArray.Parse(json["Items"].ToString()); //Itemsは配列なのでJArrayにパース
+
+                //結果を出力
+                foreach (JObject jobj in Items)
+                {
+                    //↓のように取り出す
+                    JValue titleValue = (JValue)jobj["title"];
+                    string title = (string)titleValue.Value;
+
+                    JValue titleKanaValue = (JValue)jobj["titleKana"];
+                    string titleKana = (string)titleKanaValue.Value;
+
+                    JValue authorValue = (JValue)jobj["author"];
+                    string author = (string)authorValue.Value;
+
+                    JValue itemCaptionValue = (JValue)jobj["itemCaption"];
+                    string itemCaption = (string)itemCaptionValue.Value;
+
+                    JValue gazoValue = (JValue)jobj["largeImageUrl"];
+                    string gazo = (string)gazoValue.Value;
+
+                    bool x = await DisplayAlert("この内容で登録してよろしいですか？", "タイトル:" + title + "\r\n著者:" + author, "OK", "CANCEL");
+                    if (x == true)
+                    {
+                        UserModel.insertUser(isbncode, title, titleKana, itemCaption);
+                    }
+
+
+                };
             }
-            Content = layout;
+            catch (Exception e)
+            {
+                await DisplayAlert("Error", e.ToString(), "ok");
+            }
+
+
+
         }
 
     }

@@ -10,16 +10,17 @@
             VerticalOptions="CenterAndExpand" />
 
 
-            <Label Text="TEST!"
-               HorizontalOptions="CenterAndExpand"
-               VerticalOptions="CenterAndExpand"
-               x:Name="LOL"/>
+            <Entry Placeholder="ISBNを入力してください。"
+                   PlaceholderColor="Gray"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   x:Name="LOL"/>
 
-            <Button Text="select!"
+            <Button Text="Serch!"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="CenterAndExpand"
-                    x:Name="select"
-                    Clicked="SelectClicked"/>
+                    x:Name="serch"
+                    Clicked="SerchClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
