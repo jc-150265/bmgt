@@ -249,9 +249,7 @@ namespace SamplePage
                     picker3.Items.Add("ミステリー・サスペンス");
                     picker3.Items.Add("SF・ホラー");
                     picker3.Items.Add("エッセイ");
-                    picker3.Items.Add("ノンフィクション");
-                    picker3.Items.Add("日本の小説");
-                    picker3.Items.Add("外国の小説");
+                    picker3.Items.Add("ノンフィクション");                   
                     genreid = "00" + (picker2.SelectedIndex + 1).ToString();
                 }
 
@@ -787,13 +785,10 @@ namespace SamplePage
 
             };
 
-            for (var j = 0; j < 30; j++)
+            for (var j = 0; j < items.Count; j++)
             {
                 items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j] });
 
-            }
-            for (var i = 0; i < items.Count; i++)
-            {
                 if (items[i].Value <= 0.25)
                 {
                     items[i].ValueImage = "value_0.gif";
@@ -838,10 +833,7 @@ namespace SamplePage
                 {
                     items[i].ValueImage = "value_5.gif";
                 }
-
             }
-
-
             RankListView.ItemsSource = items;
 
 
