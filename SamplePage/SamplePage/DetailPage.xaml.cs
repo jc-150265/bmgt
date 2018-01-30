@@ -18,12 +18,12 @@ namespace SamplePage
         bool hantei2 = true;
         bool hantei3 = true;
 
-        var titlee;
-        var Date;
-        var type;
-        var publisher;
-        var bluebook;
-        var redstar;
+        string titlee;
+        string Date;
+        string type;
+        string publisher;
+        /*string bluebook;
+        string redstar;*/
 
         public DetailPage(string x)
         {
@@ -39,8 +39,8 @@ namespace SamplePage
                     Date = book.SalesDate;
                     type = book.Type;
                     publisher = book.Publisher;
-                    bluebook = book.BlueBook;
-                    redstar = book.RedStar;
+                    /*bluebook = book.BlueBook;
+                    redstar = book.RedStar;*/
                 }
                 title2.Text = titlee;
                 Type2.Text = "タイプ：" + type;
