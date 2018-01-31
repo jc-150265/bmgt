@@ -190,51 +190,51 @@ namespace SamplePage
         }
 
 
-        private void picker_SelectedIndexChanged(object sender, EventArgs e)
+        private async void picker_SelectedIndexChanged(object sender, EventArgs e)
         {
             await Task.Delay(2000);
             items.Clear();
-            var query;
+            
             string aaa;
             if (picker.SelectedIndex == 0)
             {
                 aaa = "TitleKana";
-                query = UserModel.sortAsc(aaa);
+                var query = UserModel.sortAsc(aaa);
             }
             else if (picker.SelectedIndex == 1)
             {
                 aaa = "TitleKana";
-                query = UserModel.sortDesc(aaa);
+                var query = UserModel.sortDesc(aaa);
             }
             else if (picker.SelectedIndex == 2)
             {
                 aaa = "AuthorKana";
-                query = UserModel.sortAsc(aaa);
+                var query = UserModel.sortAsc(aaa);
             }
             else if (picker.SelectedIndex == 3)
             {
                 aaa = "AuthorKana";
-                query = UserModel.sortDesc(aaa);
+                var query = UserModel.sortDesc(aaa);
             }
             else if (picker.SelectedIndex == 4)
             {
                 aaa = "SalesDate";
-                query = UserModel.sortAsc(aaa);
+                var query = UserModel.sortAsc(aaa);
             }
             else if (picker.SelectedIndex == 5)
             {
                 aaa = "SalesDate";
-                query = UserModel.sortDesc(aaa);
+                var query = UserModel.sortDesc(aaa);
             }
             else if (picker.SelectedIndex == 6)
             {
                 aaa = "Date";
-                query = UserModel.sortAsc(aaa);
+                var query = UserModel.sortAsc(aaa);
             }
             else if (picker.SelectedIndex == 7)
             {
                 aaa = "Date";
-                query = UserModel.sortDesc(aaa);
+                var query = UserModel.sortDesc(aaa);
             }
 
             var List1 = new List<String>();
