@@ -33,7 +33,7 @@ namespace SamplePage
                 }
                 for (var j = 0; j < query.Count; j++)
                 {
-                    items.Add(new Book {ISBN=List2[j], Name = List1[j], /*Value = 2.5*/ });
+                    items.Add(new Book { ISBN = List2[j], Name = List1[j], /*Value = 2.5*/ });
 
                 }
             }
@@ -42,7 +42,7 @@ namespace SamplePage
                 items.Add(new Book { Name = "空やで" });
             }
 
-           
+
 
             /*for (var j = 1; j == query2.Count; j++)
             {                
@@ -179,16 +179,80 @@ namespace SamplePage
             }
             else
             {
-                items.Add(new Book { Name = "空やで"});
+                items.Add(new Book { Name = "空やで" });
             }
 
             BookListView.ItemsSource = items;
-            
+
 
             //リフレッシュを止める
             this.BookListView.IsRefreshing = false;
         }
 
+
+        private void picker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await Task.Delay(2000);
+            items.Clear();
+            var query;
+            string aaa;
+            if (picker.SelectedIndex == 0)
+            {
+                aaa = "TitleKana";
+                query = UserModel.sortAsc(aaa);
+            }
+            else if (picker.SelectedIndex == 1)
+            {
+                aaa = "TitleKana";
+                query = UserModel.sortDesc(aaa);
+            }
+            else if (picker.SelectedIndex == 2)
+            {
+                aaa = "AuthorKana";
+                query = UserModel.sortAsc(aaa);
+            }
+            else if (picker.SelectedIndex == 3)
+            {
+                aaa = "AuthorKana";
+                query = UserModel.sortDesc(aaa);
+            }
+            else if (picker.SelectedIndex == 4)
+            {
+                aaa = "SalesDate";
+                query = UserModel.sortAsc(aaa);
+            }
+            else if (picker.SelectedIndex == 5)
+            {
+                aaa = "SalesDate";
+                query = UserModel.sortDesc(aaa);
+            }
+            else if (picker.SelectedIndex == 6)
+            {
+                aaa = "Date";
+                query = UserModel.sortAsc(aaa);
+            }
+            else if (picker.SelectedIndex == 7)
+            {
+                aaa = "Date";
+                query = UserModel.sortDesc(aaa);
+            }
+
+            var List1 = new List<String>();
+            //*をリストにぶち込んで個数分addするのでもいいのでは
+            foreach (var user in query)
+            {
+                List1.Add(user.Title);
+            }
+            for (var j = 0; j < query.Count; j++)
+            {
+                items.Add(new Book { Name = List1[j], /*Value = 2.5*/ });
+
+            }
+            BookListView.ItemsSource = items;
+
+            //リフレッシュを止める
+            this.BookListView.IsRefreshing = false;
+        }
 
     }
 }

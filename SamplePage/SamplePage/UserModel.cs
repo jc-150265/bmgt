@@ -284,5 +284,51 @@ namespace SamplePage
             }
         }
 
+        //Userテーブルの行データを取得します
+        //--------------------------select文的なの--------------------------
+        public static List<UserModel> sortDesc(string Foo)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+
+                try
+                {
+                    //データベースに指定したSQLを発行します
+                    //return db.Query<UserModel>("SELECT * FROM [Book] order by [_id] desc limit 15");
+                    return db.Query<UserModel>("SELECT * FROM [Book] order by" + Foo + "desc");
+
+                }
+                catch (Exception e)
+                {
+
+                    System.Diagnostics.Debug.WriteLine(e);
+                    return null;
+                }
+            }
+        }
+
+        //Userテーブルの行データを取得します
+        //--------------------------select文的なの--------------------------
+        public static List<UserModel> sortAsc(string Fooo)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+
+                try
+                {
+                    //データベースに指定したSQLを発行します
+                    //return db.Query<UserModel>("SELECT * FROM [Book] order by [_id] desc limit 15");
+                    return db.Query<UserModel>("SELECT * FROM [Book] order by" + Fooo);
+
+                }
+                catch (Exception e)
+                {
+
+                    System.Diagnostics.Debug.WriteLine(e);
+                    return null;
+                }
+            }
+        }
+
     }
 }

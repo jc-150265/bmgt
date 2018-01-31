@@ -24,7 +24,8 @@
                 <Label Text="タイプ" x:Name="Type2"/>
                 <Label Text="発売日" x:Name="SalesDate2"/>
                 <Label Text="出版社" x:Name="Publisher2"/>
-                <Label Text="カテゴリ" />
+                <Label Text="" x:Name="Category2"/>
+                <Label Text="説明" x:Name="ItemCaption2"/>
 
             </StackLayout>
 

@@ -18,10 +18,12 @@ namespace SamplePage
         bool hantei2 = true;
         bool hantei3 = true;
 
-        string titlee;
+        string title;
         string Date;
         string type;
         string publisher;
+        string category;
+        string itemCapation;
         /*string bluebook;
         string redstar;*/
 
@@ -35,17 +37,24 @@ namespace SamplePage
 
                 foreach (var book in query)
                 {
-                    titlee = book.Title;
+                    title = book.Title;
                     Date = book.SalesDate;
                     type = book.Type;
                     publisher = book.Publisher;
+                    category = book.booksGenreId;
+                    if (book.ItemCaption != null)
+                    {
+                        itemCapation = book.ItemCaption;
+                    }
                     /*bluebook = book.BlueBook;
                     redstar = book.RedStar;*/
                 }
-                title2.Text = titlee;
+                if(category=="001")
+                title2.Text = title;
                 Type2.Text = "タイプ：" + type;
                 SalesDate2.Text = "発売日:" + Date;
                 Publisher2.Text = "出版社:" + publisher;
+                ItemCaption2.Text = "説明:" + itemCapation;
 
             }
             else
