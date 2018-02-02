@@ -11,7 +11,7 @@
             <StackLayout>
 
                 <!-- 本のタイトルを表示 -->
-                <Label Text="基礎から学ぶXamarinプログラミング" Margin="30" FontSize="30" x:Name="title2"/>
+                <Label Text="Title" Margin="30" FontSize="30" x:Name="title2"/>
 
                 <!-- 横線を表示 -->
                 <BoxView Color="Gray" WidthRequest="1000" HeightRequest="1" />
@@ -26,6 +26,7 @@
                 <Label Text="出版社" x:Name="Publisher2"/>
                 <Label Text="" x:Name="Category2"/>
                 <Label Text="説明" x:Name="ItemCaption2"/>
+                <Button Text="削除する" Margin="30,15" FontSize="20" Clicked="OnDeleteButtonClicked"/>
 
             </StackLayout>
 

@@ -12,18 +12,15 @@ namespace SamplePage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailPage : ContentPage
     {
-        
-        // ボタンとスイッチの判定
-        bool hantei1 = true;
-        bool hantei2 = true;
-        bool hantei3 = true;
-
         string title;
         string Date;
         string type;
         string publisher;
         string category;
         string itemCapation;
+        int read;
+        int redstar;
+        int bluebook;
         /*string bluebook;
         string redstar;*/
 
@@ -42,6 +39,9 @@ namespace SamplePage
                     type = book.Type;
                     publisher = book.Publisher;
                     category = book.booksGenreId;
+                    bluebook = book.BlueBook;
+                    redstar = book.RedStar;
+                    read = book.Read;
                     if (book.ItemCaption != null)
                     {
                         itemCapation = book.ItemCaption;
@@ -49,49 +49,85 @@ namespace SamplePage
                     /*bluebook = book.BlueBook;
                     redstar = book.RedStar;*/
                 }
-                if(category=="001")
-                title2.Text = title;
-                Type2.Text = "タイプ：" + type;
-                SalesDate2.Text = "発売日:" + Date;
-                Publisher2.Text = "出版社:" + publisher;
-                ItemCaption2.Text = "説明:" + itemCapation;
+
 
             }
             else
             {
                 DisplayAlert("表なし", "表なし", "OK");
             }
-        }
 
-        // 読みたいボタンを点滅させる
-        private void OnImageClicked1(object sender, EventArgs e)
-        {
-            if (hantei1 == true)
+            title2.Text = title;
+            Type2.Text = "タイプ:" + type;
+            SalesDate2.Text = "発売日:" + Date;
+            Publisher2.Text = "出版社:" + publisher;
+            ItemCaption2.Text = "説明:" + itemCapation;
+            if (bluebook == 1)
             {
                 this.image1.Image = "blue_book_72.png";
-                hantei1 = false;
             }
 
             else
             {
                 this.image1.Image = "gray_book_72.png";
-                hantei1 = true;
+            }
+
+            if (redstar == 1)
+            {
+                this.image2.Image = "red_star_72.png";
+            }
+
+            else
+            {
+                this.image2.Image = "gray_star_72.png";
+            }
+
+            if (read == 0)
+            {
+                this.unread2.Text = "未読";
+                unread1.IsToggled = false;
+            }
+
+            if (read == 1)
+            {
+                this.unread2.Text = "既読";
+                unread1.IsToggled = true;
+            }
+        }
+
+        // 読みたいボタンを点滅させる
+        private void OnImageClicked1(object sender, EventArgs e)
+        {
+            if (bluebook == 1)
+            {
+                UserModel.Gray_Book(Isbn);
+                this.image1.Image = "gray_book_72.png";
+                bluebook = 0;
+            }
+
+            else
+            {
+                UserModel.Blue_Book(Isbn);
+                this.image1.Image = "blue_book_72.png";
+                bluebook = 1;
             }
         }
 
         // お気にいりボタンを点滅させる
         private void OnImageClicked2(object sender, EventArgs e)
         {
-            if (hantei2 == true)
+            if (redstar == 1)
             {
-                this.image2.Image = "red_star_72.png";
-                hantei2 = false;
+                UserModel.Gray_Star(Isbn);
+                this.image2.Image = "gray_star_72.png";
+                redstar = 0;
             }
 
             else
             {
-                this.image2.Image = "gray_star_72.png";
-                hantei2 = true;
+                UserModel.Red_Star(Isbn);
+                this.image2.Image = "red_star_72.png";
+                redstar = 1;
             }
         }
 
@@ -100,11 +136,23 @@ namespace SamplePage
         {
             if (unread1.IsToggled == true)
             {
+                UserModel.ReadBook(Isbn);
                 this.unread2.Text = "既読";
             }
             if (unread1.IsToggled == false)
             {
+                UserModel.UnreadBook(Isbn);
                 this.unread2.Text = "未読";
+            }
+        }
+
+        private async void OnDeleteButtonClicked(object sender, EventArgs e)
+        {
+            bool x = await DisplayAlert("警告", "削除してもよろしいですか？", "はい", "いいえ");
+            if (x == true)
+            {
+                UserModel.DeleteBook(Isbn);
+                Navigation.PushAsync(new BookPage());
             }
         }
     }

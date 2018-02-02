@@ -229,7 +229,7 @@ namespace SamplePage
                         bool x = await DisplayAlert("この内容で登録してよろしいですか？", "タイトル:" + title + "\r\n著者:" + author, "OK", "CANCEL");
                         if (x == true)
                         {
-                            UserModel.insertUser(isbn, title, titleKana, subTitle, subTitleKana, author, authorKana, publisher, size, itemCaption, salesDate, price, gazo, genreId);
+                            UserModel.insertUser(isbn, title, titleKana, subTitle, subTitleKana, author, authorKana, publisher, size, itemCaption, salesDate, price, gazo, genreId,0,0,0);
                         }
                     };
                 };
@@ -343,7 +343,7 @@ namespace SamplePage
                     bool x = await DisplayAlert("この内容で登録してよろしいですか？", "タイトル:" + title + "\r\n著者:" + author, "OK", "CANCEL");
                     if (x == true)
                     {
-                        UserModel.insertUser(isbn, title, titleKana, subTitle, subTitleKana, author, authorKana, publisher, size, itemCaption, salesDate, price, gazo, genreId);
+                        UserModel.insertUser(isbn, title, titleKana, subTitle, subTitleKana, author, authorKana, publisher, size, itemCaption, salesDate, price, gazo, genreId,0,0,0);
                     }
 
 

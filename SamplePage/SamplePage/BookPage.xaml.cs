@@ -12,10 +12,14 @@ using Xamarin.Forms.Xaml;
 
 namespace SamplePage
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BookPage : ContentPage
     {
         public ObservableCollection<Book> items = new ObservableCollection<Book>();
+        public int sortkey = 0;
+        public string terms = "error";
+
         public BookPage()
         {
             InitializeComponent();
@@ -23,17 +27,27 @@ namespace SamplePage
             if (UserModel.selectUser() != null)
             {
                 var query = UserModel.selectUser();
-                var List1 = new List<String>();
-                var List2 = new List<String>();
+                var titleList = new List<string>();
+                var isbnList = new List<string>();
+                var RedList = new List<int>();
+                var BlueList = new List<int>();
                 //*をリストにぶち込んで個数分addするのでもいいのでは
                 foreach (var user in query)
                 {
-                    List1.Add(user.Title);
-                    List2.Add(user.ISBN);
+                    titleList.Add(user.Title);
+                    isbnList.Add(user.ISBN);
+                    RedList.Add(user.RedStar);
+                    BlueList.Add(user.BlueBook);
                 }
                 for (var j = 0; j < query.Count; j++)
                 {
-                    items.Add(new Book { ISBN = List2[j], Name = List1[j], /*Value = 2.5*/ });
+                    items.Add(new Book
+                    {
+                        Name = titleList[j],
+                        ISBN = isbnList[j],
+                        RedStar = RedList[j],
+                        BlueBook = BlueList[j],
+                    });
 
                 }
             }
@@ -44,76 +58,18 @@ namespace SamplePage
 
 
 
-            /*for (var j = 1; j == query2.Count; j++)
-            {                
-                foreach (var user in UserModel.countUser(j))
-                {
-                   items.Add(new Book { Name = user.Name, Value = 2.5 });
-                }
-            }*/
-
-            /*foreach (var user in query2)
+            for (var i = 0; i < items.Count; i++)
             {
-                List1[0] = user.Name;
-            }List1.Add = List1[0];*/
-
-
-
-            /*for (var i = 0; i < items.Count; i++)
-            {
-                if (items[i].Value <= 0.25)
-                {
-                    items[i].ValueImage = "value_0.gif";
-                }
-                else if (items[i].Value <= 0.75)
-                {
-                    items[i].ValueImage = "value_0.5.gif";
-                }
-                else if (items[i].Value <= 1.25)
-                {
-                    items[i].ValueImage = "value_1.gif";
-                }
-                else if (items[i].Value <= 1.75)
-                {
-                    items[i].ValueImage = "value_1.5.gif";
-                }
-                else if (items[i].Value <= 2.25)
-                {
-                    items[i].ValueImage = "value_2.gif";
-                }
-                else if (items[i].Value <= 2.75)
-                {
-                    items[i].ValueImage = "value_2.5.gif";
-                }
-                else if (items[i].Value <= 3.25)
-                {
-                    items[i].ValueImage = "value_3.gif";
-                }
-                else if (items[i].Value <= 3.75)
-                {
-                    items[i].ValueImage = "value_3.5.gif";
-                }
-                else if (items[i].Value <= 4.25)
-                {
-                    items[i].ValueImage = "value_4.gif";
-                }
-                else if (items[i].Value <= 4.75)
-                {
-                    items[i].ValueImage = "value_4.5.gif";
-                }
-                else
-                {
-                    items[i].ValueImage = "value_5.gif";
-                }
-                if (items[i].RedStar == true)
+                if (items[i].BlueBook == 1)
                 {
                     items[i].RedStar2 = "red_star_72.png";
                 }
-                if (items[i].BlueBook == true)
+                if (items[i].BlueBook == 1)
                 {
                     items[i].BlueBook2 = "blue_book_72.png";
                 }
-            }*/
+
+            }
 
             BookListView.ItemsSource = items;
 
@@ -165,15 +121,51 @@ namespace SamplePage
             if (UserModel.selectUser() != null)
             {
                 var query = UserModel.selectUser();
-                var List1 = new List<String>();
+                var titleList = new List<String>();
+                var isbnList = new List<String>();
+                var RedList = new List<int>();
+                var BlueList = new List<int>();
+                var RedList2 = new List<string>();
+                var BlueList2 = new List<string>();
                 //*をリストにぶち込んで個数分addするのでもいいのでは
                 foreach (var user in query)
                 {
-                    List1.Add(user.Title);
+                    titleList.Add(user.Title);
+                    isbnList.Add(user.ISBN);
+                    RedList.Add(user.RedStar);
+                    BlueList.Add(user.BlueBook);
+                }
+                for (var h = 0; h < query.Count; h++)
+                {
+                    if (RedList[h] == 1)
+                    {
+                        RedList2.Add("red_star_72.png");
+                    }
+                    else
+                    {
+                        RedList2.Add("");
+                    }
+
+                    if (BlueList[h] == 1)
+                    {
+                        BlueList2.Add("blue_book_72.png");
+                    }
+                    else
+                    {
+                        BlueList2.Add("");
+                    }
                 }
                 for (var j = 0; j < query.Count; j++)
                 {
-                    items.Add(new Book { Name = List1[j], /*Value = 2.5*/ });
+                    items.Add(new Book
+                    {
+                        Name = titleList[j],
+                        ISBN = isbnList[j],
+                        RedStar = RedList[j],
+                        BlueBook = BlueList[j],
+                        RedStar2 = RedList2[j],
+                        BlueBook2 = BlueList2[j]
+                    });
 
                 }
             }
@@ -181,6 +173,8 @@ namespace SamplePage
             {
                 items.Add(new Book { Name = "空やで" });
             }
+
+
 
             BookListView.ItemsSource = items;
 
@@ -192,59 +186,182 @@ namespace SamplePage
 
         private async void picker_SelectedIndexChanged(object sender, EventArgs e)
         {
-           /* await Task.Delay(2000);
-            items.Clear();
-            
-            string aaa;
+
             if (picker.SelectedIndex == 0)
             {
-                aaa = "TitleKana";               
+                terms = "TitleKana";
+                sortkey = 1;
             }
             else if (picker.SelectedIndex == 1)
             {
-                aaa = "TitleKana";               
+                terms = "TitleKana";
+                sortkey = 2;
             }
             else if (picker.SelectedIndex == 2)
             {
-                aaa = "AuthorKana";
+                terms = "AuthorKana";
+                sortkey = 1;
             }
             else if (picker.SelectedIndex == 3)
             {
-                aaa = "AuthorKana";
+                terms = "AuthorKana";
+                sortkey = 2;
             }
             else if (picker.SelectedIndex == 4)
             {
-                aaa = "SalesDate";
+                terms = "SalesDate";
+                sortkey = 1;
             }
             else if (picker.SelectedIndex == 5)
             {
-                aaa = "SalesDate";
+                terms = "SalesDate";
+                sortkey = 2;
             }
             else if (picker.SelectedIndex == 6)
             {
-                aaa = "Date";
+                terms = "Date";
+                sortkey = 1;
             }
             else if (picker.SelectedIndex == 7)
             {
-                aaa = "Date";
+                terms = "Date";
+                sortkey = 2;
             }
 
-            var query = UserModel.sortAsc(aaa);
-            var List1 = new List<String>();
-            //*をリストにぶち込んで個数分addするのでもいいのでは
-            foreach (var user in query)
-            {
-                List1.Add(user.Title);
-            }
-            for (var j = 0; j < query.Count; j++)
-            {
-                items.Add(new Book { Name = List1[j], /*Value = 2.5*//* });
+        }
 
+        private async void OnSortButtonClicked(object sender, EventArgs e)
+        {
+            //2秒処理を待つ
+            await Task.Delay(2000);
+            items.Clear();
+
+            if (UserModel.sortselectUser(terms, sortkey) != null)
+            {
+                var query = UserModel.sortselectUser(terms, sortkey);
+                var titleList = new List<String>();
+                var isbnList = new List<String>();
+                var RedList = new List<int>();
+                var BlueList = new List<int>();
+                var RedList2 = new List<string>();
+                var BlueList2 = new List<string>();
+                //*をリストにぶち込んで個数分addするのでもいいのでは
+                foreach (var user in query)
+                {
+                    titleList.Add(user.Title);
+                    isbnList.Add(user.ISBN);
+                    RedList.Add(user.RedStar);
+                    BlueList.Add(user.BlueBook);
+                }
+                for (var h = 0; h < query.Count; h++)
+                {
+                    if (RedList[h] == 1)
+                    {
+                        RedList2.Add("red_star_72.png");
+                    }
+                    else
+                    {
+                        RedList2.Add("");
+                    }
+
+                    if (BlueList[h] == 1)
+                    {
+                        BlueList2.Add("blue_book_72.png");
+                    }
+                    else
+                    {
+                        BlueList2.Add("");
+                    }
+                }
+                for (var j = 0; j < query.Count; j++)
+                {
+                    items.Add(new Book
+                    {
+                        Name = titleList[j],
+                        ISBN = isbnList[j],
+                        RedStar = RedList[j],
+                        BlueBook = BlueList[j],
+                        RedStar2 = RedList2[j],
+                        BlueBook2 = BlueList2[j]
+                    });
+
+                }
             }
+            else
+            {
+                items.Add(new Book { Name = "空やで" });
+            }
+
             BookListView.ItemsSource = items;
 
             //リフレッシュを止める
-            this.BookListView.IsRefreshing = false;*/
+            this.BookListView.IsRefreshing = false;
+        }
+
+        //サーチイベントハンドラ
+        private async void Serch_title(object sender, EventArgs e)
+        {
+            string keyword = sBar.Text.ToString();
+            if (UserModel.selectUser_search(keyword) != null)
+            {
+                var query = UserModel.selectUser_search(keyword);
+                var titleList = new List<String>();
+                var isbnList = new List<String>();
+                var RedList = new List<int>();
+                var BlueList = new List<int>();
+                var RedList2 = new List<string>();
+                var BlueList2 = new List<string>();
+                //*をリストにぶち込んで個数分addするのでもいいのでは
+                foreach (var user in query)
+                {
+                    titleList.Add(user.Title);
+                    isbnList.Add(user.ISBN);
+                    RedList.Add(user.RedStar);
+                    BlueList.Add(user.BlueBook);
+                }
+                for (var h = 0; h < query.Count; h++)
+                {
+                    if (RedList[h] == 1)
+                    {
+                        RedList2.Add("red_star_72.png");
+                    }
+                    else
+                    {
+                        RedList2.Add("");
+                    }
+
+                    if (BlueList[h] == 1)
+                    {
+                        BlueList2.Add("blue_book_72.png");
+                    }
+                    else
+                    {
+                        BlueList2.Add("");
+                    }
+                }
+                for (var j = 0; j < query.Count; j++)
+                {
+                    items.Add(new Book
+                    {
+                        Name = titleList[j],
+                        ISBN = isbnList[j],
+                        RedStar = RedList[j],
+                        BlueBook = BlueList[j],
+                        RedStar2 = RedList2[j],
+                        BlueBook2 = BlueList2[j]
+                    });
+
+                }
+            }
+            else
+            {
+                items.Add(new Book { Name = "空やで" });
+            }
+
+            BookListView.ItemsSource = items;
+
+            //リフレッシュを止める
+            this.BookListView.IsRefreshing = false;
         }
 
     }

@@ -611,7 +611,7 @@ namespace SamplePage
             var query = UserModel.selectUser();
             var ListTitle = new List<String>();
             var ListReview = new List<double>();
-
+            var ListValue = new List<string>();
             requestUrl = url + "&booksGenreId=001" + genreid; //URLにISBNコードを挿入
 
             //HTTPアクセスメソッドを呼び出す
@@ -662,58 +662,56 @@ namespace SamplePage
                 ListReview.Add(Review);
 
             };
-           
+
             for (var j = 0; j < 30; j++)
             {
-                items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j] });
 
-            }
-            for (var i = 0; i < items.Count; i++)
-            {
-                if (items[i].Value <= 0.25)
+                if (ListReview[j] <= 0.25)
                 {
-                    items[i].ValueImage = "value_0.gif";
+                    ListValue.Add("value_0.gif");
                 }
-                else if (items[i].Value <= 0.75)
+                else if (ListReview[j] <= 0.75)
                 {
-                    items[i].ValueImage = "value_0.5.gif";
+                    ListValue.Add("value_0.5.gif");
                 }
-                else if (items[i].Value <= 1.25)
+                else if (ListReview[j] <= 1.25)
                 {
-                    items[i].ValueImage = "value_1.gif";
+                    ListValue.Add("value_1.gif");
                 }
-                else if (items[i].Value <= 1.75)
+                else if (ListReview[j] <= 1.75)
                 {
-                    items[i].ValueImage = "value_1.5.gif";
+                    ListValue.Add("value_1.5.gif");
                 }
-                else if (items[i].Value <= 2.25)
+                else if (ListReview[j] <= 2.25)
                 {
-                    items[i].ValueImage = "value_2.gif";
+                    ListValue.Add("value_2.gif");
                 }
-                else if (items[i].Value <= 2.75)
+                else if (ListReview[j] <= 2.75)
                 {
-                    items[i].ValueImage = "value_2.5.gif";
+                    ListValue.Add("value_2.5.gif"); ;
                 }
-                else if (items[i].Value <= 3.25)
+                else if (ListReview[j] <= 3.25)
                 {
-                    items[i].ValueImage = "value_3.gif";
+                    ListValue.Add("value_3.gif");
                 }
-                else if (items[i].Value <= 3.75)
+                else if (ListReview[j] <= 3.75)
                 {
-                    items[i].ValueImage = "value_3.5.gif";
+                    ListValue.Add("value_3.5.gif");
                 }
-                else if (items[i].Value <= 4.25)
+                else if (ListReview[j] <= 4.25)
                 {
-                    items[i].ValueImage = "value_4.gif";
+                    ListValue.Add("value_4.gif");
                 }
-                else if (items[i].Value <= 4.75)
+                else if (ListReview[j] <= 4.75)
                 {
-                    items[i].ValueImage = "value_4.5.gif";
+                    ListValue.Add("value_4.5.gif");
                 }
                 else
                 {
-                    items[i].ValueImage = "value_5.gif";
+                    ListValue.Add("value_5.gif");
                 }
+
+                items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j], ValueImage = ListValue[j] });
 
             }
 

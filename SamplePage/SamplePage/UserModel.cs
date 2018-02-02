@@ -176,12 +176,21 @@ namespace SamplePage
 
         //GenreId列
         public string booksGenreId { get; set; }
+
+        //既読列
+        public int Read { get; set; }
+
+        //お気に入り列
+        public int RedStar { get; set; }
+
+        //読みたい列
+        public int BlueBook { get; set; }
         //------------------------Insert文的なの--------------------------
 
         //id name オーバーロード
         public static void insertUser(string isbn, string title, string titleKana, string subTitle, string subTitleKana,
             string author, string authorKana, string publisher, string type, string itemCaption,
-            string salesDate, int price, string image, string genreId)
+            string salesDate, int price, string image, string genreId,int read,int redstar,int bluebook)
         {
             //データベースに接続する
             using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
@@ -207,7 +216,11 @@ namespace SamplePage
                         Date = DateTime.Now,
                         Price = price,
                         largeImageUrl = image,
-                        booksGenreId = genreId
+                        booksGenreId = genreId,
+                        Read = read,
+                        RedStar = redstar,
+                        BlueBook = bluebook
+
                     });
 
                     db.Commit();
@@ -284,9 +297,111 @@ namespace SamplePage
             }
         }
 
+        public static void Blue_Book(string isbn)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+                try
+                {
+                    db.Execute("UPDATE [Book] SET BlueBook = 1 WHERE ISBN =" + isbn);
+                    db.Commit();
+                }
+                catch (Exception e)
+                {
+                    db.Rollback();
+                    System.Diagnostics.Debug.WriteLine(e);
+                }
+            }
+        }
+
+        public static void Gray_Book(string isbn)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+                try
+                {
+                    db.Execute("UPDATE [Book] SET BlueBook = 0 WHERE ISBN =" + isbn);
+                    db.Commit();
+                }
+                catch (Exception e)
+                {
+                    db.Rollback();
+                    System.Diagnostics.Debug.WriteLine(e);
+                }
+            }
+        }
+
+        public static void Red_Star(string isbn)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+                try
+                {
+                    db.Execute("UPDATE [Book] SET RedStar = 1 WHERE ISBN =" + isbn);
+                    db.Commit();
+                }
+                catch (Exception e)
+                {
+                    db.Rollback();
+                    System.Diagnostics.Debug.WriteLine(e);
+                }
+            }
+        }
+
+        public static void Gray_Star(string isbn)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+                try
+                {
+                    db.Execute("UPDATE [Book] SET RedStar = 0 WHERE ISBN =" + isbn);
+                    db.Commit();
+                }
+                catch (Exception e)
+                {
+                    db.Rollback();
+                    System.Diagnostics.Debug.WriteLine(e);
+                }
+            }
+        }
+
+        public static void ReadBook(string isbn)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+                try
+                {
+                    db.Execute("UPDATE [Book] SET read = 1 WHERE ISBN =" + isbn);
+                    db.Commit();
+                }
+                catch (Exception e)
+                {
+                    db.Rollback();
+                    System.Diagnostics.Debug.WriteLine(e);
+                }
+            }
+        }
+
+        public static void UnreadBook(string isbn)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+                try
+                {
+                    db.Execute("UPDATE [Book] SET read = 0 WHERE ISBN =" + isbn);
+                    db.Commit();
+                }
+                catch (Exception e)
+                {
+                    db.Rollback();
+                    System.Diagnostics.Debug.WriteLine(e);
+                }
+            }
+        }
+
         //Userテーブルの行データを取得します
         //--------------------------select文的なの--------------------------
-        public static List<UserModel> sortDesc(string Foo)
+        public static List<UserModel> sortselectUser(string terms, int sortkey)
         {
             using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
             {
@@ -295,8 +410,18 @@ namespace SamplePage
                 {
                     //データベースに指定したSQLを発行します
                     //return db.Query<UserModel>("SELECT * FROM [Book] order by [_id] desc limit 15");
-                    return db.Query<UserModel>("SELECT * FROM [Book] order by" + Foo + "desc");
-
+                    if (sortkey == 1)
+                    {
+                        return db.Query<UserModel>("SELECT * FROM [Book] order by " + terms);
+                    }
+                    else if (sortkey == 2)
+                    {
+                        return db.Query<UserModel>("SELECT * FROM [Book] order by " + terms + " desc");
+                    }
+                    else
+                    {
+                        return db.Query<UserModel>("SELECT * FROM [Book]");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -307,25 +432,19 @@ namespace SamplePage
             }
         }
 
-        //Userテーブルの行データを取得します
-        //--------------------------select文的なの--------------------------
-        public static List<UserModel> sortAsc(string Fooo)
+        public static void DeleteBook(string isbn)
         {
             using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
             {
-
                 try
                 {
-                    //データベースに指定したSQLを発行します
-                    //return db.Query<UserModel>("SELECT * FROM [Book] order by [_id] desc limit 15");
-                    return db.Query<UserModel>("SELECT * FROM [Book] order by" + Fooo);
-
+                    db.Execute("DELETE FROM [Book] WHERE ISBN =" + isbn);
+                    db.Commit();
                 }
                 catch (Exception e)
                 {
-
+                    db.Rollback();
                     System.Diagnostics.Debug.WriteLine(e);
-                    return null;
                 }
             }
         }

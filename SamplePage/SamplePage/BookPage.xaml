@@ -3,21 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SamplePage.BookPage"
              Title="本棚">
-    <ContentPage.Content>
+    <ContentPage.Content> 
         <StackLayout>
             <!-- 検索するバーを表示-->
-            <!--<SearchBar Placeholder = "Search"
+            <SearchBar Placeholder = "Search"
                        PlaceholderColor="Gray"
-                       x:Name="sBar"/>-->
+                       x:Name="sBar"
+                       SearchButtonPressed="Serch_title"/>
 
             <!-- 親カテゴリを指定するプルダウンを表示 -->
-            <!-- <Picker Title="ソート"
+            <Picker Title="ソート"
                         WidthRequest="240" 
                         SelectedIndexChanged="picker_SelectedIndexChanged"
                         x:Name="picker">
-                <Picker.Items>                    
+                <Picker.Items>
+
                     <x:String>五十音：昇順</x:String>
-                    <x:String>五十音：降順</x:String>                                        
+                    <x:String>五十音：降順</x:String>
                     <x:String>著者名：昇順</x:String>
                     <x:String>著者名：降順</x:String>
                     <x:String>発売日：昇順</x:String>
@@ -25,7 +27,10 @@
                     <x:String>登録日：昇順</x:String>
                     <x:String>登録日：降順</x:String>
                 </Picker.Items>
-            </Picker>-->
+            </Picker>
+
+            <Button Text="ソートする"
+                    Clicked="OnSortButtonClicked"/>
 
             <ListView x:Name="BookListView" RowHeight="100"
                    IsPullToRefreshEnabled="True"
