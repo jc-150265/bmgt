@@ -297,6 +297,27 @@ namespace SamplePage
             }
         }
 
+        public static List<UserModel> selectUser_search(string keyword)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+
+                try
+                {
+                    //データベースに指定したSQLを発行します
+                    //return db.Query<UserModel>("SELECT * FROM [Book] order by [_id] desc limit 15");
+                    return db.Query<UserModel>("SELECT * FROM [Book] WHERE Title LIKE '%" + keyword + "%'");
+
+                }
+                catch (Exception e)
+                {
+
+                    System.Diagnostics.Debug.WriteLine(e);
+                    return null;
+                }
+            }
+        }
+
         public static void Blue_Book(string isbn)
         {
             using (SQLiteConnection db = new SQLiteConnection(App.dbPath))

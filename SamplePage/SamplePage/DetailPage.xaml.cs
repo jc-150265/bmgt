@@ -45,7 +45,7 @@ namespace SamplePage
                     read = book.Read;
                     if (book.ItemCaption != null)
                     {
-                        itemCapation = book.ItemCaption;
+                        itemcapation = book.ItemCaption;
                     }
                     /*bluebook = book.BlueBook;
                     redstar = book.RedStar;*/
@@ -62,7 +62,7 @@ namespace SamplePage
             Type2.Text = "タイプ:" + type;
             SalesDate2.Text = "発売日:" + Date;
             Publisher2.Text = "出版社:" + publisher;
-            ItemCaption2.Text = "説明:" + itemCapation;
+            ItemCaption2.Text = "説明:" + itemcapation;
             if (bluebook == 1)
             {
                 this.image1.Image = "blue_book_72.png";
