@@ -82,15 +82,11 @@ namespace SamplePage
 
             public string Name { get; set; }
 
-            public double Value { get; set; }
-
-            public string ValueImage { get; set; }
-
-            public bool RedStar { get; set; }
+            public int RedStar { get; set; }
 
             public string RedStar2 { get; set; }
 
-            public bool BlueBook { get; set; }
+            public int BlueBook { get; set; }
 
             public string BlueBook2 { get; set; }
 

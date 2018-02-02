@@ -12,17 +12,18 @@ namespace SamplePage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailPage : ContentPage
     {
+        string Isbn;
         string title;
         string Date;
         string type;
-        string publisher;
+        string itemcaption;
         string category;
-        string itemCapation;
+        string author;
+        string publisher;
+
         int read;
         int redstar;
         int bluebook;
-        /*string bluebook;
-        string redstar;*/
 
         public DetailPage(string x)
         {
