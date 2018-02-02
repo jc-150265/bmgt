@@ -6,9 +6,9 @@
     <ContentPage.Content>0
         <StackLayout>
             <!-- 検索するバーを表示-->
-            <SearchBar Placeholder = "Search"
+            <!--<SearchBar Placeholder = "Search"
                        PlaceholderColor="Gray"
-                       x:Name="sBar"/>
+                       x:Name="sBar"/>-->
 
             <!-- 親カテゴリを指定するプルダウンを表示 -->
             <!-- <Picker Title="ソート"
