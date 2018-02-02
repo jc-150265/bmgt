@@ -29,6 +29,8 @@ namespace SamplePage
         {
             InitializeComponent();
 
+            Isbn = x;
+
             if (UserModel.isbnSelect(x) != null)
             {
                 var query = UserModel.isbnSelect(x);
