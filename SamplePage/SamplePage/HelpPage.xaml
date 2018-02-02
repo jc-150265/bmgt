@@ -3,11 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SamplePage.HelpPage"
              Title="ヘルプ">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="へるぷするよー"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <WebView Source="http://bmgt-help.hatenadiary.com/entry/2018/02/01/222019" />
+
 </ContentPage>
