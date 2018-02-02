@@ -5,15 +5,16 @@
              x:Class="SamplePage.MainPage">
 
 
-    <NavigationPage Title="カメラ" Icon="iconmonstr-photo-camera-4-24.png">
-        <x:Arguments>
-            <local:CameraPage />
-        </x:Arguments>
-    </NavigationPage>
-
+    
     <NavigationPage Title="本棚" Icon="iconmonstr-bookmark-1-24.png">
         <x:Arguments>
             <local:BookPage />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="カメラ" Icon="iconmonstr-photo-camera-4-24.png">
+        <x:Arguments>
+            <local:CameraPage />
         </x:Arguments>
     </NavigationPage>
 

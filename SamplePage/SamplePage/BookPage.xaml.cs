@@ -27,10 +27,12 @@ namespace SamplePage
             if (UserModel.selectUser() != null)
             {
                 var query = UserModel.selectUser();
-                var titleList = new List<string>();
-                var isbnList = new List<string>();
+                var titleList = new List<String>();
+                var isbnList = new List<String>();
                 var RedList = new List<int>();
                 var BlueList = new List<int>();
+                var RedList2 = new List<string>();
+                var BlueList2 = new List<string>();
                 //*をリストにぶち込んで個数分addするのでもいいのでは
                 foreach (var user in query)
                 {
@@ -38,6 +40,26 @@ namespace SamplePage
                     isbnList.Add(user.ISBN);
                     RedList.Add(user.RedStar);
                     BlueList.Add(user.BlueBook);
+                }
+                for (var h = 0; h < query.Count; h++)
+                {
+                    if (RedList[h] == 1)
+                    {
+                        RedList2.Add("red_star_72.png");
+                    }
+                    else
+                    {
+                        RedList2.Add("");
+                    }
+
+                    if (BlueList[h] == 1)
+                    {
+                        BlueList2.Add("blue_book_72.png");
+                    }
+                    else
+                    {
+                        BlueList2.Add("");
+                    }
                 }
                 for (var j = 0; j < query.Count; j++)
                 {
@@ -47,6 +69,8 @@ namespace SamplePage
                         ISBN = isbnList[j],
                         RedStar = RedList[j],
                         BlueBook = BlueList[j],
+                        RedStar2 = RedList2[j],
+                        BlueBook2 = BlueList2[j]
                     });
 
                 }
@@ -57,19 +81,6 @@ namespace SamplePage
             }
 
 
-
-            for (var i = 0; i < items.Count; i++)
-            {
-                if (items[i].BlueBook == 1)
-                {
-                    items[i].RedStar2 = "red_star_72.png";
-                }
-                if (items[i].BlueBook == 1)
-                {
-                    items[i].BlueBook2 = "blue_book_72.png";
-                }
-
-            }
 
             BookListView.ItemsSource = items;
 
