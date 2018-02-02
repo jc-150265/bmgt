@@ -198,45 +198,38 @@ namespace SamplePage
             string aaa;
             if (picker.SelectedIndex == 0)
             {
-                aaa = "TitleKana";
-                var query = UserModel.sortAsc(aaa);
+                aaa = "TitleKana";               
             }
             else if (picker.SelectedIndex == 1)
             {
-                aaa = "TitleKana";
-                var query = UserModel.sortDesc(aaa);
+                aaa = "TitleKana";               
             }
             else if (picker.SelectedIndex == 2)
             {
                 aaa = "AuthorKana";
-                var query = UserModel.sortAsc(aaa);
             }
             else if (picker.SelectedIndex == 3)
             {
                 aaa = "AuthorKana";
-                var query = UserModel.sortDesc(aaa);
             }
             else if (picker.SelectedIndex == 4)
             {
                 aaa = "SalesDate";
-                var query = UserModel.sortAsc(aaa);
             }
             else if (picker.SelectedIndex == 5)
             {
                 aaa = "SalesDate";
-                var query = UserModel.sortDesc(aaa);
             }
             else if (picker.SelectedIndex == 6)
             {
                 aaa = "Date";
-                var query = UserModel.sortAsc(aaa);
             }
             else if (picker.SelectedIndex == 7)
             {
                 aaa = "Date";
-                var query = UserModel.sortDesc(aaa);
             }
 
+            var query = UserModel.sortAsc(aaa);
             var List1 = new List<String>();
             //*をリストにぶち込んで個数分addするのでもいいのでは
             foreach (var user in query)

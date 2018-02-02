@@ -790,9 +790,49 @@ namespace SamplePage
             for (var j = 0; j < 30; j++)
             {
                 items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j] });
+                if(ListReview[j] <= 0.25)
+                {
+                    items[j].ValueImage = "value_0.gif";
+                }
+                else if (ListReview[j] <= 0.75)
+                {
+                    items[j].ValueImage = "value_0.5.gif";
+                }
+                else if (ListReview[j] <=1.25)
+                {
+                    items[j].ValueImage = "value_1.5.gif";
+                }
+                else if (ListReview[j] <= 1.75)
+                {
+                    items[j].ValueImage = "value_2.gif";
+                }
+                else if (ListReview[j] <= 2.25)
+                {
+                    items[j].ValueImage = "value_2.5.gif";
+                }
+                else if (ListReview[j] <= 2.75)
+                {
+                    items[j].ValueImage = "value_3.gif";
+                }
+                else if (ListReview[j] <= 3.25)
+                {
+                    items[j].ValueImage = "value_3.5.gif";
+                }
+                else if (ListReview[j] <= 3.75)
+                {
+                    items[j].ValueImage = "value_4.gif";
+                }
+                else if (ListReview[j] <= 4.25)
+                {
+                    items[j].ValueImage = "value_4.5.gif";
+                }
+                else if (ListReview[j] <= 4.75)
+                {
+                    items[j].ValueImage = "value_5.gif";
+                }
 
             }
-            for (var i = 0; i < items.Count; i++)
+            /*for (var i = 0; i < items.Count; i++)
             {
                 if (items[i].Value <= 0.25)
                 {
@@ -838,8 +878,8 @@ namespace SamplePage
                 {
                     items[i].ValueImage = "value_5.gif";
                 }
-
-            }
+                
+            }*/
 
 
             RankListView.ItemsSource = items;

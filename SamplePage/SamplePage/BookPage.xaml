@@ -15,9 +15,7 @@
                         WidthRequest="240" 
                         SelectedIndexChanged="picker_SelectedIndexChanged"
                         x:Name="picker">
-                <Picker.Items>
-
-                    
+                <Picker.Items>                    
                     <x:String>五十音：昇順</x:String>
                     <x:String>五十音：降順</x:String>                                        
                     <x:String>著者名：昇順</x:String>
