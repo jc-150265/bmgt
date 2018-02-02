@@ -11,7 +11,7 @@
                        x:Name="sBar"/>
 
             <!-- 親カテゴリを指定するプルダウンを表示 -->
-            <Picker Title="ソート"
+            <!-- <Picker Title="ソート"
                         WidthRequest="240" 
                         SelectedIndexChanged="picker_SelectedIndexChanged"
                         x:Name="picker">
@@ -25,7 +25,7 @@
                     <x:String>登録日：昇順</x:String>
                     <x:String>登録日：降順</x:String>
                 </Picker.Items>
-            </Picker>
+            </Picker>-->
 
             <ListView x:Name="BookListView" RowHeight="100"
                    IsPullToRefreshEnabled="True"
