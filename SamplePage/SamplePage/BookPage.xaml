@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SamplePage.BookPage"
              Title="本棚">
-    <ContentPage.Content>0
+    <ContentPage.Content>
         <StackLayout>
             <!-- 検索するバーを表示-->
             <!--<SearchBar Placeholder = "Search"
