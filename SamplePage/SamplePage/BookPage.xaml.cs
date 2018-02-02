@@ -192,7 +192,7 @@ namespace SamplePage
 
         private async void picker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            await Task.Delay(2000);
+           /* await Task.Delay(2000);
             items.Clear();
             
             string aaa;
@@ -238,13 +238,13 @@ namespace SamplePage
             }
             for (var j = 0; j < query.Count; j++)
             {
-                items.Add(new Book { Name = List1[j], /*Value = 2.5*/ });
+                items.Add(new Book { Name = List1[j], /*Value = 2.5*//* });
 
             }
             BookListView.ItemsSource = items;
 
             //リフレッシュを止める
-            this.BookListView.IsRefreshing = false;
+            this.BookListView.IsRefreshing = false;*/
         }
 
     }
